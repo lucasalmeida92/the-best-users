@@ -1,1 +1,25 @@
-<p>index works!</p>
+<div class="page-wrapper">
+  <div class="container">
+    <mat-grid-list
+      [cols]="gridColumns"
+      gutterSize="16px"
+      rowHeight="130px"
+      (window:resize)="onResize($event)"
+    >
+      <mat-grid-tile *ngFor="let user of users">
+        <mat-card class="user-card">
+          <mat-card-header>
+            <div mat-card-avatar [style.backgroundImage]="'url(' + user.picture + ')'" class="user-image"></div>
+            <mat-card-subtitle>{{ user.title }}</mat-card-subtitle>
+            <mat-card-title>{{ user.firstName }} {{ user.lastName }}</mat-card-title>
+          </mat-card-header>
+          <mat-card-actions>
+            <a mat-button [routerLink]="['/user/', user.id, 'view']" title="See User Details">See Details</a>
+            <a mat-button [routerLink]="['/user/', user.id, 'edit']" title="Edit User">Edit</a>
+            <button mat-button (click)="deleteUser(user.id)">Delete</button>
+          </mat-card-actions>
+        </mat-card>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+</div>

@@ -1,2 +1,14 @@
-<h1>Best Users</h1>
-<h2>Manage the best users ;)</h2>
+<mat-toolbar color="primary">
+  <h1 class="app-title">
+    <a mat-button routerLink="/" title="Go to Home page">
+      The Best Users
+    </a>
+  </h1>
+  <span class="example-spacer"></span>
+  <a mat-fab extended color="accent" routerLink="/user/create" title="Create a new user">
+    <mat-icon>add</mat-icon>
+    Add user
+  </a>
+</mat-toolbar>
+<app-loader></app-loader>
+<router-outlet></router-outlet>
