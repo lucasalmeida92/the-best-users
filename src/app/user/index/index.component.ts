@@ -9,27 +9,14 @@ import { UserService } from '../user.service';
 })
 export class IndexComponent implements OnInit {
   users: UserPreview[] = [];
-  gridColumns: number | undefined;
-  mobileBreakpoint: number = 720;
-  mobileGridColumns: number = 1;
-  desktopGridColumns: number = 2;
 
   constructor(public userService: UserService) { }
 
   ngOnInit(): void {
-    this.gridColumns = (window.innerWidth <= this.mobileBreakpoint)
-      ? this.mobileGridColumns
-      : this.desktopGridColumns;
     this.userService.getAll().subscribe((data: UsersList)=>{
       this.users = data.data;
       console.log(this.users);
     })
-  }
-
-  onResize(event:any) {
-    this.gridColumns = (event.target.innerWidth <= this.mobileBreakpoint)
-      ? this.mobileGridColumns
-      : this.desktopGridColumns;
   }
 
   deleteUser(id:string){

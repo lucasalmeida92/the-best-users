@@ -1,13 +1,7 @@
 <div class="page-wrapper">
   <div class="container">
-    <mat-grid-list
-      [cols]="gridColumns"
-      gutterSize="16px"
-      rowHeight="130px"
-      (window:resize)="onResize($event)"
-    >
-      <mat-grid-tile *ngFor="let user of users">
-        <mat-card class="user-card">
+    <div class="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+        <mat-card *ngFor="let user of users" class="user-card">
           <mat-card-header>
             <div mat-card-avatar [style.backgroundImage]="'url(' + user.picture + ')'" class="user-image"></div>
             <mat-card-subtitle>{{ user.title }}</mat-card-subtitle>
@@ -19,7 +13,6 @@
             <button mat-button (click)="deleteUser(user.id)">Delete</button>
           </mat-card-actions>
         </mat-card>
-      </mat-grid-tile>
-    </mat-grid-list>
+      </div>
   </div>
 </div>

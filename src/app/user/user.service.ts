@@ -40,7 +40,7 @@ export class UserService {
   }
 
   create(user:User): Observable<any> {
-    return this.httpClient.post(this.userApiUrl, JSON.stringify(user), this.httpOptions)
+    return this.httpClient.post(`${this.userApiUrl}/create`, JSON.stringify(user), this.httpOptions)
       .pipe(
         catchError(this.errorHandler)
       )

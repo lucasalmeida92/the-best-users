@@ -1,1 +1,105 @@
-<p>create works!</p>
+<div class="page-wrapper">
+  <div class="container">
+    <a mat-button routerLink="/" title="Go back to Users list">
+      <mat-icon>keyboard_arrow_left</mat-icon>
+      Back
+    </a>
+
+    <h1 class="page-title">Create New User</h1>
+
+    <form [formGroup]="form" (ngSubmit)="submit()" class="form">
+      <div class="w-full grid grid-cols-1 md:grid-cols-3 gap-4">
+        <mat-form-field>
+          <mat-label>Title</mat-label>
+          <mat-select formControlName="title">
+            <mat-option value="mr">mr</mat-option>
+            <mat-option value="ms">ms</mat-option>
+            <mat-option value="mrs">mrs</mat-option>
+            <mat-option value="miss">miss</mat-option>
+            <mat-option value="dr">dr</mat-option>
+            <mat-option value=""></mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>First Name</mat-label>
+          <input matInput formControlName="firstName">
+          <mat-error *ngIf="f['firstName'].errors && f['firstName'].errors['required']">First Name is required.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Last Name</mat-label>
+          <input matInput formControlName="lastName">
+          <mat-error *ngIf="f['lastName'].errors && f['lastName'].errors['required']">Last Name is required.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Email</mat-label>
+          <input matInput type="email" formControlName="email">
+          <mat-error *ngIf="f['email'].errors && f['email'].errors['required']">Email is required.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Gender</mat-label>
+          <mat-select formControlName="gender">
+            <mat-option value="male">male</mat-option>
+            <mat-option value="female">female</mat-option>
+            <mat-option value="other">other</mat-option>
+            <mat-option value=""></mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Date of birth</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="dateOfBirth">
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Phone</mat-label>
+          <input matInput formControlName="phone">
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Picture(url)</mat-label>
+          <input matInput formControlName="picture">
+        </mat-form-field>
+
+      </div>
+      <div formGroupName="location" class="w-full grid grid-cols-1 md:grid-cols-3 gap-4">
+        <mat-form-field>
+          <mat-label>Street</mat-label>
+          <input matInput formControlName="street">
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>City</mat-label>
+          <input matInput formControlName="city">
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>State</mat-label>
+          <input matInput formControlName="state">
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Country</mat-label>
+          <input matInput formControlName="country">
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Timezone</mat-label>
+          <input matInput formControlName="timezone">
+        </mat-form-field>
+      </div>
+
+      <div class="w-full mt-4 text-right">
+        <button mat-raised-button color="primary" type="submit" [disabled]="!form.valid">
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -2,10 +2,17 @@
   max-width: 400px;
 
   .user-header {
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
     img {
-      border-radius: 100px;
+      border-radius: 900px;
+      width: 90px;
+      height: 90px;
+      object-fit: cover;
+      margin-bottom: 1rem;
     }
   }
 
