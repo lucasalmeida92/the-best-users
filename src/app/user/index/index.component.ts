@@ -15,7 +15,6 @@ export class IndexComponent implements OnInit {
   ngOnInit(): void {
     this.userService.getAll().subscribe((data: UsersList)=>{
       this.users = data.data;
-      console.log(this.users);
     })
   }
 
