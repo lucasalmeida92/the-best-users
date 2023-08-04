@@ -27,10 +27,11 @@ export class ViewComponent implements OnInit {
   }
 
   deleteUser() {
-    this.userService.delete(this.userId).subscribe(res => {
-      // go to List page
-      alert('User deleted successfully!');
-      this.router.navigateByUrl('/');
-    })
+    if (confirm('Do you really wanna delete this user?') === true) {
+      this.userService.delete(this.userId).subscribe(res => {
+        alert('User deleted successfully!');
+        this.router.navigateByUrl('/');
+      })
+    }
   }
 }

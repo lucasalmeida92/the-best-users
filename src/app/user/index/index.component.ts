@@ -33,10 +33,11 @@ export class IndexComponent implements OnInit {
   }
 
   deleteUser(id:string){
-    this.userService.delete(id).subscribe(res => {
-      this.users = this.users.filter(item => item.id !== id);
-
-      alert('User deleted successfully!');
-    })
+    if (confirm('Do you really wanna delete this user?') === true) {
+      this.userService.delete(id).subscribe(res => {
+        this.users = this.users.filter(item => item.id !== id);
+        alert('User deleted successfully!');
+      })
+    }
   }
 }
