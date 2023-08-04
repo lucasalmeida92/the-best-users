@@ -5,16 +5,16 @@
       Back
     </a>
 
+    <h1 class="page-title">Update User:</h1>
+
     <div *ngIf="user" class="w-full flex items-center justify-center flex-col mb-5">
       <img
         [src]="user.picture"
         [alt]="user.firstName + ' picture'"
-        class="w-[90px] h-[90px] rounded-full"
+        class="w-[90px] h-[90px] rounded-full mb-3"
       >
-      <h1 class="page-title">
-        Update User: <span *ngIf="user?.firstName">{{ user.firstName }}</span>
-      </h1>
-      <h2 *ngIf="user?.email" class="!-mt-4 !mb-5 !text-sm">{{ user.email }}</h2>
+      <h2 *ngIf="user?.firstName" class="!text-3xl">{{ user.firstName }}</h2>
+      <h3 *ngIf="user?.email" class="!-mt-4 !mb-5 !text-sm">{{ user.email }}</h3>
     </div>
 
     <form [formGroup]="form" *ngIf="user" (ngSubmit)="submit()" class="form">

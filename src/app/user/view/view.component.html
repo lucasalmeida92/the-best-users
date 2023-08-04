@@ -8,7 +8,7 @@
 
   <div class="container user-wrapper" *ngIf="user">
     <div class="user-header">
-      <img [src]="user.picture" alt="Fulano da Silva picture">
+      <img [src]="user.picture" [alt]="user.firstName + ' picture'">
       <h1>{{user.title}} {{user.firstName}} {{user.lastName}}</h1>
     </div>
 
@@ -27,7 +27,7 @@
         </p>
         <p>
           <strong>Date of Birth: </strong>
-          <span *ngIf="user.dateOfBirth">{{ user.dateOfBirth | date:'yyyy/MM/dd HH:mm' }}</span>
+          <span *ngIf="user.dateOfBirth">{{ user.dateOfBirth | date:'yyyy/MM/dd' }}</span>
         </p>
         <p>
           <strong>Registered at: </strong>

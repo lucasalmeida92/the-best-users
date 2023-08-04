@@ -10,8 +10,8 @@ import { User } from '../user';
   styleUrls: ['./edit.component.scss']
 })
 export class EditComponent implements OnInit {
-  user!: User;
   userId!: string;
+  user!: User;
   form!: FormGroup;
 
   constructor(
@@ -36,7 +36,7 @@ export class EditComponent implements OnInit {
           [Validators.required, Validators.minLength(2), Validators.maxLength(50)]
         ),
       gender: new FormControl(''),
-      dateOfBirth: new FormControl('', [Validators.minLength(8), Validators.maxLength(10)]),
+      dateOfBirth: new FormControl('', [Validators.minLength(8)]),
       phone: new FormControl(''),
       picture: new FormControl(''),
       location: new FormGroup({
